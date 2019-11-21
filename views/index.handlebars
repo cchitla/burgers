@@ -7,20 +7,42 @@
 
     <div class="row text-center">
         <div class="col-6">
-            <p>uneaten burgers column</p>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <p class="float-left">Burger: {{burger_name}}</p><button class="float-right">Devour It</button>
+            {{/unless}}
+            {{/each}}
         </div>
 
         <div class="col-6">
             <p>eaten burgers column</p>
+            {{#each burgers}}
+            {{#if devoured}}
+            <p>Burger: {{ burger_name }}</p>
+            {{/if}}
+            {{/each}}
         </div>
     </div>
 
     <div class="row text-center">
         <div class="col-12">
-            <form action="" method="POST" id="newBurgerForm">
-                <textarea name="" id="" cols="40" rows="4"></textarea>
+
+
+
+            <form action="/api/burger" method="POST" id="newBurgerForm">
+                <input type="text" name="burgerName">
             </form>
-            <button type="submit" form="newBurgerForm">Add Burger</button>
+            <button id="newBurgerButton" type="submit" form="newBurgerForm">Add Burger</button>
+
+    {{!-- =========================================================================================== --}}
+
+            {{!-- <form action="/api/burger" method="POST" id="newBurgerForm">
+                <textarea type="text" name="burgerName" cols="40" rows="4" form="newBurgerForm"></textarea>
+            </form>
+            <button id="newBurgerButton" type="submit" form="newBurgerForm">Add Burger</button> --}}
+
+
+
         </div>
     </div>
 
