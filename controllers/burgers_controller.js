@@ -17,8 +17,13 @@ router.post("/api/burger", (req, res) => {
     });
 });
 
-//router.put and call burger.updateOne; 
-    //devour button directs here
 
+router.put("/api/burger/:name", (req, res) => {
+    console.log(req.params);
+    
+    burger.updateOne(req.params.name, (results) => {
+        res.redirect("/");
+    })
+})
 
 module.exports = router;

@@ -21,18 +21,21 @@ let orm = {
         })
     },
 
-    updateOne: function () {
+    updateOne: function (table, burgerName, cb) {
         //mySQL queries
-        let sqlQuery = "UPDATE " + table + "SET ? WHERE ?";
+        let sqlQuery = "UPDATE " + table + " SET ? WHERE ?";
         let query = [
             {
-                devoured: true
+                devoured: 1
             },
             {
-                burger_name: requestId
+                burger_name: burgerName
             }
         ];
-        connection.query();
+        connection.query(sqlQuery, query, (error, results) => {
+            if (error) throw error;
+            cb(results);
+        });
     }
 };
 

@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row m-3">
+    <div class="row m-3 mb-5">
         <div class="col-12 text-center">
             <h2>Burgers</h2>
         </div>
@@ -7,29 +7,31 @@
 
     <div class="row text-center">
         <div class="col-6">
+            <h4>Burgers to eat!</h4>
             {{#each burgers}}
             {{#unless devoured}}
-            <p class="float-left">Burger: {{burger_name}}</p><button class="float-right">Devour It</button>
+            <p class="float-left">{{burger_name}}</p><button class="float-right devour-btn" data-id="{{burger_name}}">Devour It</button>
+            <br><br>
             {{/unless}}
             {{/each}}
         </div>
 
         <div class="col-6">
-            <p>eaten burgers column</p>
+            <h4>Eaten burgers!</h4>
             {{#each burgers}}
             {{#if devoured}}
-            <p>Burger: {{ burger_name }}</p>
+            <p>{{ burger_name }}</p>
+            <br>
             {{/if}}
             {{/each}}
         </div>
     </div>
 
-    <div class="row text-center">
+    <div class="row text-center m-3">
         <div class="col-12">
 
-
-
-            <form action="/api/burger" method="POST" id="newBurgerForm">
+            <form action="/api/burger" method="POST" id="newBurgerForm" class="m-3">
+                <label for="burgerName">Add a new burger: </label>
                 <input type="text" name="burgerName">
             </form>
             <button id="newBurgerButton" type="submit" form="newBurgerForm">Add Burger</button>

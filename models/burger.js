@@ -12,8 +12,10 @@ let burger = {
             cb(results);
         });
     },
-    updateOne: function() {
-        orm.updateOne();
+    updateOne: function(burgerName, cb) {
+        orm.updateOne("burgers", burgerName, (results) => {
+            cb(results)
+        });
     }
 };
 
