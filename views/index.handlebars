@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row m-3 mb-5">
         <div class="col-12 text-center">
-            <h2>Burgers</h2>
+            <h1>Burger Time</h1>
         </div>
     </div>
 
     <div class="row text-center">
         <div class="col-6">
-            <h4>Burgers to eat!</h4>
+            <h3>Burgers to eat!</h3>
             {{#each burgers}}
             {{#unless devoured}}
             <p class="float-left">{{burger_name}}</p><button class="float-right devour-btn" data-id="{{burger_name}}">Devour It</button>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="col-6">
-            <h4>Eaten burgers!</h4>
+            <h3>Eaten burgers!</h3>
             {{#each burgers}}
             {{#if devoured}}
             <p>{{ burger_name }}</p>
